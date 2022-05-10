@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jenkins-shared-lib-test.iml" filepath="$PROJECT_DIR$/jenkins-shared-lib-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apwide-jenkins-shared-lib-test.iml" filepath="$PROJECT_DIR$/apwide-jenkins-shared-lib-test.iml" />
     </modules>
   </component>
 </project>
