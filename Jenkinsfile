@@ -9,15 +9,10 @@ pipeline {
       APW_GOLIVE_CLOUD_CREDENTIALS_ID = 'golive-cloud-credentials'
       APW_JIRA_CLOUD_BASE_URL = 'https://gigue.atlassian.net'
     }
-    def versionFromPom() {
-        def pom = readMavenPom file: 'pom.xml'
-        return  pom.version
-    }
     stages {
         stage('build') {
             steps {
                 sh 'echo Build...'
-                echo versionFromPom
             }
         }
         /*
@@ -28,8 +23,9 @@ pipeline {
         }*/
         stage ('send deployment info to golive') {
             steps {
-                script {
-                    apwSendDeploymentInfo({application: 'eCommerce', category: 'PreProd',version: versionFromPom(), buildNumber: currentBuild.number})
+                script{
+                    def pom = readMavenPom file: 'pom.xml'
+                    apwSendDeploymentInfo(application: 'eCommerce', category: 'PreProd', version: pom.version, buildNumber: currentBuild.number)
                 }
             }
         }
