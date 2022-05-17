@@ -24,7 +24,7 @@ pipeline {
         stage ('send deployment info to golive') {
             steps {
                 script{
-                    def pom = readMavenPom file: 'pom.xml'
+                    def pom = readMavenPom file: 'pom.xml' 
                     apwSendDeploymentInfo(application: 'eCommerce', category: 'PreProd', version: pom.version, buildNumber: currentBuild.number)
                 }
             }
