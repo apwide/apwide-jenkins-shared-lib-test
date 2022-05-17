@@ -5,8 +5,8 @@ def buildVersionName
 pipeline {
     agent any
     environment {
-      APW_JIRA_CLOUD_CREDENTIALS_ID = "jira-cloud-credentials"
-      APW_GOLIVE_CLOUD_CREDENTIALS_ID = 'golive-cloud-credentials'
+      APW_JIRA_CLOUD_CREDENTIALS_ID = "jira-cloud-test-credentials"
+      APW_GOLIVE_CLOUD_CREDENTIALS_ID = 'golive-cloud-test-credentials'
       APW_JIRA_CLOUD_BASE_URL = 'https://gigue.atlassian.net'
     }
     stages {
