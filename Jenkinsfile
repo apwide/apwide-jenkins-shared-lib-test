@@ -5,7 +5,6 @@ def buildVersionName
 pipeline {
     agent any
     environment {
-      APW_JIRA_CLOUD_CREDENTIALS_ID = "jira-cloud-test-credentials"
       APW_GOLIVE_CLOUD_CREDENTIALS_ID = 'golive-cloud-test-credentials'
       APW_JIRA_CLOUD_BASE_URL = 'https://gigue.atlassian.net'
     }
@@ -24,7 +23,7 @@ pipeline {
         stage ('send deployment info to golive') {
             steps {
                 script{
-                    def pom = readMavenPom file: 'pom.xml' 
+                    def pom = readMavenPom file: 'pom.xml'
                     apwSendDeploymentInfo(application: 'eCommerce', category: 'PreProd', version: pom.version, buildNumber: currentBuild.number)
                 }
             }
